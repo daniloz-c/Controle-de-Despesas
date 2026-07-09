@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "jest": "^30.4.2",
+  },
+  "scripts": {
+        "test": "cross-env TEST=true node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage"
+  }
+}
+
