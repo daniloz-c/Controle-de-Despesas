@@ -1,0 +1,13 @@
+const router=require('express').Router();
+const auth=require('../middleware/auth');
+const login=require('../controllers/authController');
+const category=require('../controllers/categoryController');
+const expense=require('../controllers/expenseController');
+const dashboard=require('../controllers/dashboardController');
+router.post('/users',login.register);
+router.post('/auth/login',login.login);
+router.use(auth);
+router.get('/categories',category.list);router.post('/categories',category.create);router.put('/categories/:id',category.update);router.delete('/categories/:id',category.remove);
+router.get('/expenses',expense.list);router.post('/expenses',expense.create);router.put('/expenses/:id',expense.update);router.delete('/expenses/:id',expense.remove);
+router.get('/dashboard/total-expenses',dashboard.total);router.get('/dashboard/expenses-count',dashboard.count);router.get('/dashboard/expenses-by-category',dashboard.byCategory);
+module.exports=router;
